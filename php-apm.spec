@@ -8,7 +8,7 @@
 Summary:	Alternative PHP Monitor
 Name:		php-%{modname}
 Version:	1.0.0
-Release:	%mkrel 0.0.%{pre_rel}.3
+Release:	%mkrel 0.0.%{pre_rel}.4
 Group:		Development/PHP
 License:	PHP License
 URL:		http://pecl.php.net/package/APM/
