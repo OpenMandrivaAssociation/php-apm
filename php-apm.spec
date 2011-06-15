@@ -3,18 +3,20 @@
 %define soname %{modname}.so
 %define inifile B10_%{modname}.ini
 
-%define pre_rel beta3
+%define pre_rel %{nil}
 
 Summary:	Alternative PHP Monitor
 Name:		php-%{modname}
 Version:	1.0.0
-Release:	%mkrel 0.0.%{pre_rel}.5
+Release:	%mkrel 1
 Group:		Development/PHP
 License:	PHP License
 URL:		http://pecl.php.net/package/APM/
 Source0:	http://pecl.php.net/get/APM-%{version}%{pre_rel}.tgz
 Source1:	B10_apm.ini
+Patch0:		APM-1.0.0-default_path.diff
 BuildRequires:	sqlite3-devel
+BuildRequires:	mysql-devel
 BuildRequires:	php-devel >= 3:5.2.0
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
@@ -27,17 +29,25 @@ SQLite database.
 %setup -q -n APM-%{version}%{pre_rel}
 [ "../package*.xml" != "/" ] && mv ../package*.xml .
 
-cp %{SOURCE1} %{inifile}
+%patch0 -p0
 
-# lib64 fix
-perl -pi -e "s|/lib\b|/%{_lib}|g" config.m4
+cp %{SOURCE1} %{inifile}
 
 %build
 %serverbuild
 
+export APM_SHARED_LIBADD="-lmysqlclient -lz -lsqlite3"
 phpize
-%configure2_5x --with-libdir=%{_lib} \
+%configure2_5x \
+    --with-libdir=%{_lib} \
+    --with-sqlite3=%{_prefix} \
+    --with-mysql=%{_prefix} \
+    --with-zlib-dir=%{_prefix} \
     --with-%{modname}=shared,%{_prefix}
+
+# use the correct version
+echo "#define APM_VERSION \"%{version}%{pre_rel}\"" >> config.h
+
 %make
 mv modules/*.so .
 
@@ -69,6 +79,6 @@ rm -rf %{buildroot}
 %files 
 %defattr(-,root,root)
 %doc web AUTHORS LICENSE NEWS apm.sql apm.ini package*.xml
-%config(noreplace) %attr(0644,root,root) %{_sysconfdir}/php.d/%{inifile}
+%config(noreplace) %attr(0640,apache,apache) %{_sysconfdir}/php.d/%{inifile}
 %attr(0755,root,root) %{_libdir}/php/extensions/%{soname}
 %attr(0750,apache,apache) /var/lib/php-apm
