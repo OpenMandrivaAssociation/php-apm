@@ -3,12 +3,12 @@
 %define soname %{modname}.so
 %define inifile B10_%{modname}.ini
 
-%define pre_rel %{nil}
+%define pre_rel beta2
 
 Summary:	Alternative PHP Monitor
 Name:		php-%{modname}
-Version:	1.0.1
-Release:	%mkrel 3
+Version:	1.1.0
+Release:	%mkrel 0.0.%{pre_rel}.1
 Group:		Development/PHP
 License:	PHP License
 URL:		http://pecl.php.net/package/APM/
@@ -78,7 +78,7 @@ rm -rf %{buildroot}
 
 %files 
 %defattr(-,root,root)
-%doc web AUTHORS LICENSE NEWS apm.sql apm.ini package*.xml
+%doc web AUTHORS LICENSE NEWS sql apm.ini package*.xml
 %config(noreplace) %attr(0640,apache,apache) %{_sysconfdir}/php.d/%{inifile}
 %attr(0755,root,root) %{_libdir}/php/extensions/%{soname}
 %attr(0750,apache,apache) /var/lib/php-apm
