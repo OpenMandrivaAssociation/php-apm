@@ -3,7 +3,7 @@
 %define soname %{modname}.so
 %define inifile B10_%{modname}.ini
 
-%define pre_rel beta2
+%define pre_rel beta3
 
 Summary:	Alternative PHP Monitor
 Name:		php-%{modname}
