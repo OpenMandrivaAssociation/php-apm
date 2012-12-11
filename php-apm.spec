@@ -82,3 +82,71 @@ rm -rf %{buildroot}
 %config(noreplace) %attr(0640,apache,apache) %{_sysconfdir}/php.d/%{inifile}
 %attr(0755,root,root) %{_libdir}/php/extensions/%{soname}
 %attr(0750,apache,apache) /var/lib/php-apm
+
+
+%changelog
+* Wed Jun 20 2012 Oden Eriksson <oeriksson@mandriva.com> 1.1.0-0.0.beta4.1mdv2012.0
++ Revision: 806362
+- 1.1.0beta4
+
+* Fri Jun 01 2012 Oden Eriksson <oeriksson@mandriva.com> 1.1.0-0.0.beta3.1
++ Revision: 801811
+- 1.1.0beta3
+
+* Sun May 06 2012 Oden Eriksson <oeriksson@mandriva.com> 1.1.0-0.0.beta2.1
++ Revision: 797205
+- 1.1.0beta2
+- rebuild for php-5.4.x
+- rebuild
+
+* Tue Nov 15 2011 Oden Eriksson <oeriksson@mandriva.com> 1.0.1-1
++ Revision: 730707
+- 1.0.1
+
+* Wed Aug 24 2011 Oden Eriksson <oeriksson@mandriva.com> 1.0.0-3
++ Revision: 696390
+- rebuilt for php-5.3.8
+
+* Fri Aug 19 2011 Oden Eriksson <oeriksson@mandriva.com> 1.0.0-2
++ Revision: 695347
+- rebuilt for php-5.3.7
+
+* Wed Jun 15 2011 Oden Eriksson <oeriksson@mandriva.com> 1.0.0-1
++ Revision: 685385
+- 1.0.0
+
+* Sat Mar 19 2011 Oden Eriksson <oeriksson@mandriva.com> 1.0.0-0.0.beta3.5
++ Revision: 646609
+- rebuilt for php-5.3.6
+
+* Sat Jan 08 2011 Oden Eriksson <oeriksson@mandriva.com> 1.0.0-0.0.beta3.4mdv2011.0
++ Revision: 629762
+- rebuilt for php-5.3.5
+
+* Mon Jan 03 2011 Oden Eriksson <oeriksson@mandriva.com> 1.0.0-0.0.beta3.3mdv2011.0
++ Revision: 628061
+- ensure it's built without automake1.7
+
+* Wed Nov 24 2010 Oden Eriksson <oeriksson@mandriva.com> 1.0.0-0.0.beta3.2mdv2011.0
++ Revision: 600458
+- rebuild
+
+* Thu Nov 11 2010 Oden Eriksson <oeriksson@mandriva.com> 1.0.0-0.0.beta3.1mdv2011.0
++ Revision: 595938
+- 1.0.0beta3
+
+* Sun Oct 24 2010 Oden Eriksson <oeriksson@mandriva.com> 1.0.0-0.0.beta2.3mdv2011.0
++ Revision: 588740
+- rebuild
+
+* Fri Mar 05 2010 Oden Eriksson <oeriksson@mandriva.com> 1.0.0-0.0.beta2.2mdv2010.1
++ Revision: 514514
+- rebuilt for php-5.3.2
+
+* Sun Jan 31 2010 Oden Eriksson <oeriksson@mandriva.com> 1.0.0-0.0.beta2.1mdv2010.1
++ Revision: 498793
+- import php-apm
+
+
+* Sun Jan 31 2010 Oden Eriksson <oeriksson@mandriva.com> 1.0.0-0.0.beta2.1mdv2010.0
+- initial Mandriva package
