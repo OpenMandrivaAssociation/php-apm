@@ -11,7 +11,7 @@ Version:	1.1.0
 Release:	%mkrel 0.0.%{pre_rel}.1
 Group:		Development/PHP
 License:	PHP License
-URL:		http://pecl.php.net/package/APM/
+URL:		https://pecl.php.net/package/APM/
 Source0:	http://pecl.php.net/get/APM-%{version}%{pre_rel}.tgz
 Source1:	B10_apm.ini
 Patch0:		APM-1.0.0-default_path.diff
