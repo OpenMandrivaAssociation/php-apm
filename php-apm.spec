@@ -15,6 +15,11 @@ URL:		https://pecl.php.net/package/APM/
 Source0:	http://pecl.php.net/get/APM-%{version}%{pre_rel}.tgz
 Source1:	B10_apm.ini
 Patch0:		APM-1.0.0-default_path.diff
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	sqlite3-devel
 BuildRequires:	mysql-devel
 BuildRequires:	php-devel >= 3:5.2.0
